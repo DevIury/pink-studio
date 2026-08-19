@@ -47,14 +47,19 @@ import { TESTIMONIALS, LINKS } from '@/config';
                     “{t.text}”
                   </blockquote>
                   <figcaption class="mt-8 flex flex-col items-center gap-3">
-                    <img
-                      src={t.photo}
-                      alt={`Foto de ${t.name}`}
-                      width="64"
-                      height="64"
-                      class="h-16 w-16 rounded-full border-2 border-accent/40 object-cover shadow-glow-sm"
-                      loading="lazy"
-                    />
+                    <picture>
+                      <source srcset="/foto-kate.avif" type="image/avif" />
+                      <source srcset="/foto-kate.webp" type="image/webp" />
+                      <img
+                        src={t.photo}
+                        alt={`Foto de ${t.name}`}
+                        width="64"
+                        height="64"
+                        class="h-16 w-16 rounded-full border-2 border-accent/40 object-cover shadow-glow-sm"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </picture>
                     <div>
                       <p class="font-bold text-white">{t.name}</p>
                       <p class="text-sm text-content-secondary">{t.company}</p>
@@ -103,6 +108,7 @@ import { TESTIMONIALS, LINKS } from '@/config';
           href={LINKS.whatsapp}
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="Quero um depoimento desses pelo WhatsApp"
           class="inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-accent to-[#1a1a1a] px-8 py-4 text-sm font-bold text-white shadow-glow transition-all duration-300 hover:from-accent-hover hover:to-[#222222] hover:scale-105 active:scale-95"
         >
           <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">

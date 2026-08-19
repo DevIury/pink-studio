@@ -4,6 +4,10 @@ import icon from 'astro-icon';
 
 export default {
   site: 'https://pinkstudio.com.br',
+  build: {
+    inlineStylesheets: 'auto',
+  },
+  compressHTML: true,
   integrations: [
     tailwind({
       applyBaseStyles: false,

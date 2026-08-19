@@ -88,13 +88,18 @@ import { LINKS } from '@/config';
 
         <div class="relative overflow-hidden rounded-[2rem] border border-white/10 bg-gradient-to-b from-base-surface to-[#141417] shadow-2xl shadow-black/50">
           <div class="relative flex items-center justify-center p-10 md:p-14">
-            <img
-              src="/logo-clara.png"
-              alt="Logo da Pink Studio"
-              class="h-auto w-full max-w-xs object-contain md:max-w-sm"
-              loading="eager"
-              fetchpriority="high"
-            />
+            <picture>
+              <source srcset="/logo-clara.avif" type="image/avif" />
+              <source srcset="/logo-clara.webp" type="image/webp" />
+              <img
+                src="/logo-clara.png"
+                alt="Logo da Pink Studio"
+                class="h-auto w-full max-w-xs object-contain md:max-w-sm"
+                loading="eager"
+                fetchpriority="high"
+                decoding="async"
+              />
+            </picture>
             <div
               class="pointer-events-none absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-base-bg/40 to-transparent"
               aria-hidden="true"

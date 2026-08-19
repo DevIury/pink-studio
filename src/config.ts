@@ -163,19 +163,19 @@ export type Testimonial = {
 
 export const TESTIMONIALS: Testimonial[] = [
   {
-    photo: '/foto-kate.jpeg',
+    photo: '/foto-kate.webp',
     name: 'Ana Paula Ribeiro',
     company: 'Loja de Roupas Femininas',
     text: 'Eu não sabia que um vídeo poderia mudar tanto a percepção da minha marca. A Pink entendeu exatamente o que eu queria transmitir e o resultado superou tudo. Minhas clientes agora me procuram dizendo "vim pelo vídeo".',
   },
   {
-    photo: '/foto-kate.jpeg',
+    photo: '/foto-kate.webp',
     name: 'Carlos Eduardo Silva',
     company: 'Escritório de Advocacia',
     text: 'Profissionalismo incomum. Antes de gravar, eles entenderam minha história, meu público, meu objetivo. O vídeo institucional que criaram transmitiu exatamente a credibilidade que eu precisava. Em 3 meses, o dobro de consultas.',
   },
   {
-    photo: '/foto-kate.jpeg',
+    photo: '/foto-kate.webp',
     name: 'Mariana Costa',
     company: 'Clínica Odontológica',
     text: 'Fiquei impressionada com a dedicação. Cada frame, cada música, cada corte — tudo pensado para emocionar. Meus pacientes chegam dizendo que se identificaram com o conteúdo. Isso não tem preço.',
