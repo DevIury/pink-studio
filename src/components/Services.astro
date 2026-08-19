@@ -1,0 +1,90 @@
+---
+/* src/components/Services.astro */
+import { Icon } from 'astro-icon/components';
+import SectionTitle from './ui/SectionTitle.astro';
+import { SERVICES, LINKS } from '@/config';
+
+const featured = new Set(['storymaker', 'videomaker']);
+
+const serviceMessages: Record<string, string> = {
+  camera: 'Olá! Vim pelo site e quero um orçamento para captação de vídeos profissionais. 🎬',
+  calendar: 'Olá! Vim pelo site e quero um orçamento para cobertura de evento. 📅',
+  zap: 'Olá! Vim pelo site e quero um orçamento para Storymaker. ⚡',
+  clapperboard: 'Olá! Vim pelo site e quero um orçamento para Videomaker. 🎬',
+  hashtag: 'Olá! Vim pelo site e quero um orçamento para gestão de redes sociais. 📱',
+};
+---
+
+<section id="servicos" class="relative section-padding">
+  <div class="container-site">
+    <SectionTitle
+      eyebrow="Serviços"
+      title="Do story ao cinema."
+      description="Cada formato pensado para um objetivo: conexão, autoridade e resultado. Do tempo real das redes ao vídeo estruturado para campanhas."
+    />
+
+    <div class="mt-16 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+      {
+        SERVICES.map((service, index) => (
+          <article
+            class:list={[
+              'group relative flex flex-col overflow-hidden rounded-3xl border border-white/10 bg-base-surface/60 p-7 transition-all duration-500 hover:-translate-y-1.5 hover:border-accent/30 hover:shadow-glow',
+              index === 0 ? 'lg:col-span-2' : '',
+              featured.has(service.icon) ? 'border-accent/20 bg-gradient-to-br from-accent/[0.07] via-base-surface/60 to-transparent' : '',
+            ]}
+            data-reveal
+            style={`--reveal-delay: ${index * 90}ms`}
+          >
+            <div
+              class="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-accent/10 blur-3xl opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+              aria-hidden="true"
+            />
+
+            <span
+              class:list={[
+                'service-icon mb-6 inline-flex h-14 w-14 items-center justify-center rounded-2xl',
+                featured.has(service.icon)
+                  ? 'bg-accent/15 text-accent shadow-glow-sm'
+                  : 'bg-white/5 text-content-secondary group-hover:text-accent',
+              ]}
+            >
+              <Icon name={service.icon} class="h-7 w-7" aria-hidden="true" />
+            </span>
+
+            <h3 class="text-xl font-bold tracking-tight text-white md:text-2xl">
+              {service.title}
+            </h3>
+            <p class="mt-2.5 text-pretty text-sm leading-relaxed text-content-secondary md:text-base">
+              {service.description}
+            </p>
+
+            {
+              service.bullets && (
+                <ul class="mt-5 flex flex-wrap gap-2">
+                  {service.bullets.map((bullet) => (
+                    <li
+                      class="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs font-medium text-content-secondary transition-colors duration-300 group-hover:border-accent/30 group-hover:text-white"
+                    >
+                      {bullet}
+                    </li>
+                  ))}
+                </ul>
+              )
+            }
+
+            <a
+              href={`${LINKS.whatsapp.split('?')[0]}?text=${encodeURIComponent(serviceMessages[service.icon] || 'Olá! Vim pelo site e quero saber mais sobre os serviços da Pink Studio.')}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="mt-auto inline-flex items-center gap-2 pt-6 text-xs font-semibold uppercase tracking-widest text-accent/80 transition-all duration-300 hover:gap-3 hover:text-accent"
+              aria-label={`Falar sobre ${service.title}`}
+            >
+              Solicitar orçamento
+              <Icon name="arrow-right" class="h-3.5 w-3.5" aria-hidden="true" />
+            </a>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

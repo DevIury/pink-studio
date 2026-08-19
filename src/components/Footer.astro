@@ -1,0 +1,160 @@
+---
+/* src/components/Footer.astro */
+import { Icon } from 'astro-icon/components';
+import { LINKS, SITE } from '@/config';
+
+const socialLinks = [
+  { href: LINKS.instagram, icon: 'instagram', label: 'Instagram' },
+  { href: LINKS.tiktok, icon: 'tiktok', label: 'TikTok' },
+  { href: LINKS.whatsapp, icon: 'fa6-brands:whatsapp', label: 'WhatsApp' },
+];
+
+const navLinks = [
+  { href: '#sobre', label: 'Sobre' },
+  { href: '#servicos', label: 'Serviços' },
+  { href: '#metodo', label: 'Método PINK' },
+  { href: '#cases', label: 'Cases' },
+  { href: '#depoimentos', label: 'Depoimentos' },
+];
+---
+
+<footer class="relative border-t border-white/10">
+  <div class="container-site flex flex-col gap-12 py-14 md:py-20">
+    <div class="grid gap-12 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr]">
+      <div class="flex flex-col items-start gap-5">
+        <a
+          href="#inicio"
+          class="flex items-center gap-2.5 text-lg font-extrabold tracking-tight text-white"
+          aria-label={`${SITE.name} - voltar ao início`}
+        >
+          <img
+            src="/logo-clara.png"
+            alt={`Logo ${SITE.name}`}
+            width="1448"
+            height="1086"
+            class="h-40 w-auto"
+            loading="lazy"
+          />
+        </a>
+
+        <p class="max-w-sm text-pretty text-sm leading-relaxed text-content-secondary">
+          Conectamos pessoas através de histórias bem contadas. Audiovisual,
+          marketing e emoção em Curvelo – MG desde 2019.
+        </p>
+
+        <div class="flex items-center gap-3">
+          {
+            socialLinks.map((social) => (
+              <a
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Abrir ${social.label} da Pink Studio`}
+                class="flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-content-secondary transition-all duration-300 hover:-translate-y-0.5 hover:border-accent/40 hover:bg-accent/10 hover:text-accent"
+              >
+                <Icon name={social.icon} class="h-5 w-5" aria-hidden="true" />
+              </a>
+            ))
+          }
+        </div>
+      </div>
+
+      <nav aria-label="Navegação do rodapé">
+        <h3 class="text-xs font-semibold uppercase tracking-[0.2em] text-content-secondary">
+          Navegação
+        </h3>
+        <ul class="mt-5 flex flex-col gap-3">
+          {
+            navLinks.map((link) => (
+              <li>
+                <a
+                  href={link.href}
+                  class="text-sm font-medium text-content-secondary transition-colors hover:text-accent"
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+
+      <div>
+        <h3 class="text-xs font-semibold uppercase tracking-[0.2em] text-content-secondary">
+          Contato
+        </h3>
+        <ul class="mt-5 flex flex-col gap-3 text-sm">
+          <li>
+            <a
+              href={LINKS.whatsapp}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="group inline-flex items-center gap-2.5 font-medium text-content-secondary transition-colors hover:text-accent"
+            >
+              <Icon
+                name="fa6-brands:whatsapp"
+                class="h-4 w-4 text-accent/70 transition-transform duration-300 group-hover:scale-110"
+                aria-hidden="true"
+              />
+              {SITE.whatsappDisplay}
+            </a>
+          </li>
+          <li>
+            <a
+              href={LINKS.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="group inline-flex items-center gap-2.5 font-medium text-content-secondary transition-colors hover:text-accent"
+            >
+              <Icon
+                name="instagram"
+                class="h-4 w-4 text-accent/70 transition-transform duration-300 group-hover:scale-110"
+                aria-hidden="true"
+              />
+              @pinkstudio_pks
+            </a>
+          </li>
+          <li>
+            <a
+              href={LINKS.tiktok}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="group inline-flex items-center gap-2.5 font-medium text-content-secondary transition-colors hover:text-accent"
+            >
+              <Icon
+                name="tiktok"
+                class="h-4 w-4 text-accent/70 transition-transform duration-300 group-hover:scale-110"
+                aria-hidden="true"
+              />
+              @pinkstudio
+            </a>
+          </li>
+          <li class="flex items-center gap-2.5 font-medium text-content-secondary">
+            <Icon name="map-pin" class="h-4 w-4 text-accent/70" aria-hidden="true" />
+            {SITE.city} – {SITE.state}, Brasil
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div
+      class="flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 md:flex-row"
+    >
+      <p class="text-xs text-content-secondary">
+        © {new Date().getFullYear()} {SITE.name} Studio Audiovisual. Todos os
+        direitos reservados.
+      </p>
+      <p class="flex items-center gap-1.5 text-xs text-content-secondary">
+        Desenvolvido por
+        <a
+          href="https://deviury.com.br/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="font-semibold text-accent transition-colors hover:text-accent-hover"
+        >
+          DevIury
+        </a>
+      </p>
+    </div>
+  </div>
+</footer>

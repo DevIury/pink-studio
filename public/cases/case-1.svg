@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <defs>
+    <radialGradient id="g1" cx="30%" cy="25%" r="70%">
+      <stop offset="0%" stop-color="#FF4FA3" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#09090B" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="800" fill="#111113"/>
+  <rect width="1200" height="800" fill="url(#g1)"/>
+  <circle cx="900" cy="600" r="180" fill="#7c3aed" opacity="0.18"/>
+  <g fill="none" stroke="#FFFFFF" stroke-opacity="0.06" stroke-width="1">
+    <path d="M0 200 H1200 M0 400 H1200 M0 600 H1200"/>
+    <path d="M300 0 V800 M600 0 V800 M900 0 V800"/>
+  </g>
+  <text x="600" y="430" text-anchor="middle" font-family="Manrope, Arial, sans-serif" font-size="72" font-weight="800" fill="#FF4FA3">Case</text>
+  <text x="600" y="500" text-anchor="middle" font-family="Manrope, Arial, sans-serif" font-size="28" font-weight="500" fill="#A1A1AA">Sua história em destaque</text>
+</svg>

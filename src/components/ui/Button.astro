@@ -1,0 +1,68 @@
+---
+/* src/components/ui/Button.astro */
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+  href: string;
+  label: string;
+  variant?: 'primary' | 'secondary' | 'ghost';
+  size?: 'md' | 'lg';
+  icon?: string;
+  iconPosition?: 'left' | 'right';
+  external?: boolean;
+  ariaLabel?: string;
+  class?: string;
+}
+
+const {
+  href,
+  label,
+  variant = 'primary',
+  size = 'md',
+  icon,
+  iconPosition = 'right',
+  external = true,
+  ariaLabel,
+  class: className = '',
+} = Astro.props;
+
+const classes = {
+  base: 'group inline-flex items-center justify-center gap-2.5 rounded-full font-semibold transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-base-bg active:scale-[0.98]',
+  variant: {
+    primary:
+      'bg-gradient-to-r from-accent to-[#1a1a1a] text-white shadow-glow hover:from-accent-hover hover:to-[#222222] hover:shadow-glow hover:-translate-y-0.5',
+    secondary:
+      'glass text-white hover:border-accent/40 hover:bg-white/10 hover:-translate-y-0.5',
+    ghost: 'text-content-secondary hover:text-white',
+  },
+  size: {
+    md: 'px-5 py-2.5 text-sm',
+    lg: 'px-8 py-4 text-base md:px-10',
+  },
+};
+
+const iconSize = size === 'lg' ? 'w-5 h-5' : 'w-4 h-4';
+---
+
+<a
+  href={href}
+  class={`${className} ${classes.base} ${classes.variant[variant]} ${classes.size[size]}`}
+  {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+  aria-label={ariaLabel ?? label}
+>
+  {icon && iconPosition === 'left' && (
+    <Icon
+      name={icon}
+      class={`${iconSize} transition-transform duration-300 group-hover:-translate-x-0.5`}
+      aria-hidden="true"
+    />
+  )}
+  <span>{label}</span>
+  {icon && iconPosition === 'right' && (
+    <Icon
+      name={icon}
+      class={`${iconSize} transition-transform duration-300 group-hover:translate-x-0.5`}
+      aria-hidden="true"
+    />
+  )}
+</a>

@@ -1,0 +1,68 @@
+---
+/* src/components/CookieConsent.astro */
+---
+
+<div
+  id="cookie-consent"
+  class="fixed bottom-0 inset-x-0 z-50 p-4 md:p-6 translate-y-full transition-transform duration-500"
+>
+  <div class="container-site">
+    <div class="flex flex-col items-start gap-4 rounded-2xl border border-white/10 bg-base-surface/95 p-6 backdrop-blur-xl shadow-2xl md:flex-row md:items-center md:justify-between">
+      <div class="flex-1">
+        <p class="text-sm text-content-secondary">
+          Utilizamos cookies para melhorar sua experiência. Ao continuar navegando, você concorda com nossa
+          <a href="#" class="text-accent underline underline-offset-2 hover:text-accent-hover">política de privacidade</a>.
+        </p>
+      </div>
+      <div class="flex gap-3">
+        <button
+          id="cookie-reject"
+          class="rounded-xl border border-white/10 bg-white/5 px-4 py-2 text-sm text-content-secondary transition-colors hover:bg-white/10"
+        >
+          Rejeitar
+        </button>
+        <button
+          id="cookie-accept"
+          class="rounded-xl bg-accent px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-accent-hover"
+        >
+          Aceitar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+  (function () {
+    var banner = document.getElementById('cookie-consent');
+    var acceptBtn = document.getElementById('cookie-accept');
+    var rejectBtn = document.getElementById('cookie-reject');
+    if (!banner || !acceptBtn || !rejectBtn) return;
+
+    if (localStorage.getItem('cookie-consent')) {
+      banner.style.display = 'none';
+      return;
+    }
+
+    setTimeout(function () {
+      banner.style.transform = 'translateY(0)';
+    }, 2000);
+
+    function close() {
+      banner.style.transform = 'translateY(100%)';
+      setTimeout(function () {
+        banner.style.display = 'none';
+      }, 500);
+    }
+
+    acceptBtn.addEventListener('click', function () {
+      localStorage.setItem('cookie-consent', 'accepted');
+      close();
+    });
+
+    rejectBtn.addEventListener('click', function () {
+      localStorage.setItem('cookie-consent', 'rejected');
+      close();
+    });
+  })();
+</script>

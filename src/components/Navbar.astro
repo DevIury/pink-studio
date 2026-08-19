@@ -1,0 +1,241 @@
+---
+/* src/components/Navbar.astro */
+import { Icon } from 'astro-icon/components';
+import Button from './ui/Button.astro';
+import { LINKS, SITE } from '@/config';
+
+interface Props {
+  basePath?: string;
+}
+
+const { basePath = '' } = Astro.props;
+
+const navLinks = [
+  { href: `${basePath}#sobre`, label: 'Sobre' },
+  { href: `${basePath}#servicos`, label: 'Serviços' },
+  { href: `${basePath}#metodo`, label: 'Método PINK' },
+  { href: `${basePath}#cases`, label: 'Cases' },
+  { href: `${basePath}#depoimentos`, label: 'Depoimentos' },
+  { href: '/blog', label: 'Blog' },
+];
+---
+
+<header id="navbar" class="fixed inset-x-0 top-0 z-50">
+  <nav
+    class="transition-all duration-300"
+    aria-label="Navegação principal"
+  >
+    <div class="container-site flex h-24 items-center justify-between">
+      <a
+        href={basePath ? '/' : '#inicio'}
+        class="flex items-center gap-2.5 text-lg font-extrabold tracking-tight text-white"
+        aria-label={`${SITE.name} - voltar ao in��cio`}
+      >
+        <img
+          src="/logo-clara.png"
+          alt={`Logo ${SITE.name}`}
+          width="1448"
+          height="1086"
+            class="h-[5.75rem] w-auto max-w-[260px]"
+          loading="eager"
+        />
+      </a>
+
+      <ul class="hidden items-center gap-1 lg:flex">
+        {
+          navLinks.map((link) => (
+            <li>
+              <a
+                href={link.href}
+                class="relative rounded-full px-4 py-2 text-sm font-medium text-content-secondary transition-colors duration-300 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+              >
+                {link.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+
+      <div class="hidden items-center gap-3 lg:flex">
+        <Button
+          href={LINKS.whatsapp}
+          label="Falar com a gente"
+          icon="fa6-brands:whatsapp"
+          iconPosition="left"
+          size="md"
+        />
+      </div>
+
+      <button
+        id="menu-toggle"
+        type="button"
+        class="flex h-11 w-11 items-center justify-center rounded-xl border border-white/20 bg-white/15 text-white backdrop-blur-sm transition-all duration-300 hover:border-accent/50 hover:bg-accent/20 hover:text-accent active:scale-95 lg:hidden"
+        aria-label="Abrir menu"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >
+        <Icon name="menu" class="h-5 w-5" id="menu-icon-open" aria-hidden="true" />
+        <Icon
+          name="close"
+          class="hidden h-5 w-5"
+          id="menu-icon-close"
+          aria-hidden="true"
+        />
+      </button>
+    </div>
+  </nav>
+</header>
+
+<div
+  id="mobile-menu"
+  class="fixed inset-0 z-[60] flex flex-col bg-base-bg/98 backdrop-blur-2xl transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] lg:hidden"
+  style="opacity: 0; pointer-events: none; transform: translateX(100%);"
+>
+  <div class="container-site flex h-24 items-center justify-between">
+    <a
+      href={basePath ? '/' : '#inicio'}
+      class="flex items-center gap-2.5 text-lg font-extrabold tracking-tight text-white mobile-link"
+      aria-label={`${SITE.name} - voltar ao in��cio`}
+    >
+          <img
+            src="/logo-clara.png"
+            alt={`Logo ${SITE.name}`}
+            width="1448"
+            height="1086"
+          class="h-20 w-auto max-w-[220px]"
+            loading="eager"
+          />
+    </a>
+
+    <button
+      id="menu-toggle-close"
+      type="button"
+      class="flex h-11 w-11 items-center justify-center rounded-xl border border-white/20 bg-white/10 text-white backdrop-blur-sm transition-all duration-300 hover:border-accent/50 hover:bg-accent/15 hover:text-accent active:scale-95"
+      aria-label="Fechar menu"
+    >
+      <Icon name="close" class="h-5 w-5" aria-hidden="true" />
+    </button>
+  </div>
+
+  <nav class="container-site flex flex-1 flex-col justify-center pb-12">
+    <ul class="flex flex-col gap-1">
+      {
+        navLinks.map((link, i) => (
+          <li>
+            <a
+              href={link.href}
+              class="mobile-link block rounded-2xl px-6 py-4 text-2xl font-bold tracking-tight text-white/80 transition-all duration-300 hover:bg-white/5 hover:text-white hover:pl-8"
+              style={`transition-delay: ${i * 50}ms`}
+            >
+              {link.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+
+    <div class="mt-10 flex flex-col gap-4">
+      <Button
+        href={LINKS.whatsapp}
+        label="Falar com a gente"
+        icon="fa6-brands:whatsapp"
+        iconPosition="left"
+        size="lg"
+        class="w-full"
+      />
+      <div class="flex items-center justify-center gap-6 pt-4">
+        <a
+          href={LINKS.instagram}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Instagram"
+          class="flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-content-secondary transition-all duration-300 hover:border-accent/40 hover:bg-accent/10 hover:text-accent"
+        >
+          <Icon name="instagram" class="h-5 w-5" />
+        </a>
+        <a
+          href={LINKS.tiktok}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="TikTok"
+          class="flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-content-secondary transition-all duration-300 hover:border-accent/40 hover:bg-accent/10 hover:text-accent"
+        >
+          <Icon name="tiktok" class="h-5 w-5" />
+        </a>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<script is:inline>
+  (function () {
+    var navbar = document.getElementById('navbar');
+    var toggle = document.getElementById('menu-toggle');
+    var closeBtn = document.getElementById('menu-toggle-close');
+    var mobileMenu = document.getElementById('mobile-menu');
+    var iconOpen = document.getElementById('menu-icon-open');
+    var iconClose = document.getElementById('menu-icon-close');
+
+    function updateNavbar() {
+      if (window.scrollY > 24) {
+        navbar.classList.add('navbar-scrolled');
+      } else {
+        navbar.classList.remove('navbar-scrolled');
+      }
+    }
+
+    updateNavbar();
+    window.addEventListener('scroll', updateNavbar, { passive: true });
+
+    function openMenu() {
+      mobileMenu.style.opacity = '1';
+      mobileMenu.style.pointerEvents = 'auto';
+      mobileMenu.style.transform = 'translateX(0)';
+      iconOpen.classList.add('hidden');
+      iconClose.classList.remove('hidden');
+      toggle.setAttribute('aria-expanded', 'true');
+      toggle.setAttribute('aria-label', 'Fechar menu');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeMenu() {
+      mobileMenu.style.opacity = '0';
+      mobileMenu.style.pointerEvents = 'none';
+      mobileMenu.style.transform = 'translateX(100%)';
+      iconOpen.classList.remove('hidden');
+      iconClose.classList.add('hidden');
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.setAttribute('aria-label', 'Abrir menu');
+      document.body.style.overflow = '';
+    }
+
+    toggle.addEventListener('click', function () {
+      if (mobileMenu.style.opacity === '1') {
+        closeMenu();
+      } else {
+        openMenu();
+      }
+    });
+
+    closeBtn.addEventListener('click', closeMenu);
+
+    document.querySelectorAll('.mobile-link').forEach(function (link) {
+      link.addEventListener('click', closeMenu);
+    });
+  })();
+</script>
+
+<style is:global>
+  #navbar {
+    transition: background 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+                backdrop-filter 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+                border-color 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  #navbar.navbar-scrolled {
+    background: rgba(9, 9, 11, 0.72);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  }
+</style>

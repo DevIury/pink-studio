@@ -1,0 +1,37 @@
+---
+/* src/components/ScrollToTop.astro */
+---
+
+<button
+  id="scroll-to-top"
+  class="fixed bottom-6 left-6 z-50 flex h-12 w-12 items-center justify-center rounded-full border border-accent/30 bg-accent/20 text-accent shadow-lg backdrop-blur-xl transition-all duration-300 hover:bg-accent hover:text-white hover:shadow-glow opacity-0 pointer-events-none"
+  aria-label="Voltar ao topo"
+>
+  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="m18 15-6-6-6 6"/>
+  </svg>
+</button>
+
+<script is:inline>
+  (function () {
+    var btn = document.getElementById('scroll-to-top');
+    if (!btn) return;
+
+    function toggle() {
+      if (window.scrollY > 500) {
+        btn.classList.remove('opacity-0', 'pointer-events-none');
+        btn.classList.add('opacity-100', 'pointer-events-auto');
+      } else {
+        btn.classList.add('opacity-0', 'pointer-events-none');
+        btn.classList.remove('opacity-100', 'pointer-events-auto');
+      }
+    }
+
+    window.addEventListener('scroll', toggle, { passive: true });
+    toggle();
+
+    btn.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+</script>

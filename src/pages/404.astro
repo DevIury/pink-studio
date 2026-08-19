@@ -1,0 +1,33 @@
+---
+/* src/pages/404.astro */
+import Layout from '@/layouts/Layout.astro';
+import Navbar from '@/components/Navbar.astro';
+import Footer from '@/components/Footer.astro';
+import Button from '@/components/ui/Button.astro';
+import { LINKS } from '@/config';
+---
+
+<Layout title="Página não encontrada – Pink Studio" description="A página que você procura não existe ou foi movida.">
+  <Navbar basePath="/" />
+
+  <main class="relative flex min-h-[80svh] items-center justify-center overflow-hidden px-6">
+    <div class="pointer-events-none absolute inset-0" aria-hidden="true">
+      <div class="absolute left-1/2 top-1/2 h-[30rem] w-[30rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/10 blur-[120px]" />
+      <div class="noise-overlay" />
+    </div>
+
+    <div class="container-site relative z-10 text-center">
+      <span class="text-gradient text-[8rem] font-extrabold leading-none md:text-[10rem]">404</span>
+      <h1 class="mt-4 text-2xl font-bold text-white md:text-3xy">Página não encontrada</h1>
+      <p class="mx-auto mt-4 max-w-md text-content-secondary">
+        O que você procura pode ter sido movido ou não existe mais. Que tal voltar para o início?
+      </p>
+      <div class="mt-8 flex flex-wrap justify-center gap-3">
+        <Button href={LINKS.home} variant="primary" label="Voltar ao início" />
+        <Button href={LINKS.whatsapp} variant="secondary" label="Falar com a gente" />
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>

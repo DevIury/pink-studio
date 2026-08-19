@@ -1,0 +1,85 @@
+---
+/* src/components/CTA.astro */
+import { Icon } from 'astro-icon/components';
+import Button from './ui/Button.astro';
+import { LINKS } from '@/config';
+
+const highlights = [
+  { icon: 'zap', text: 'Resposta em minutos' },
+  { icon: 'users', text: 'Atendimento humanizado' },
+  { icon: 'map-pin', text: 'Curvelo – MG e região' },
+];
+---
+
+<section class="relative overflow-hidden py-24 md:py-32">
+  <div class="container-site relative z-10">
+    <div
+      class="relative overflow-hidden rounded-[2.5rem] border border-accent/25 bg-gradient-to-br from-base-surface via-base-surface to-accent/[0.08] px-6 py-16 text-center shadow-glow md:px-16 md:py-24"
+      data-reveal
+    >
+      <div class="pointer-events-none absolute inset-0" aria-hidden="true">
+        <div
+          class="absolute -top-32 left-1/2 h-72 w-[42rem] -translate-x-1/2 rounded-full bg-accent/20 blur-[110px]"
+        />
+        <div
+          class="absolute -bottom-24 -left-24 h-64 w-64 rounded-full bg-[#7c3aed]/20 blur-[100px] animate-float-slow"
+        />
+        <div
+          class="absolute -right-20 -top-16 h-56 w-56 rounded-full bg-accent/15 blur-[90px] animate-float"
+        />
+        <div class="noise-overlay" />
+        <div
+          class="absolute inset-x-16 top-0 h-px bg-gradient-to-r from-transparent via-accent/60 to-transparent"
+        />
+      </div>
+
+      <div class="relative">
+        <span
+          class="inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-accent"
+        >
+          <Icon name="sparkles" class="h-3.5 w-3.5" aria-hidden="true" />
+          Vamos começar?
+        </span>
+
+        <h2
+          class="mx-auto mt-6 max-w-3xl text-balance text-4xl font-extrabold leading-[1.05] tracking-tight text-white md:text-6xl"
+        >
+          Vamos contar a história da sua marca?
+        </h2>
+
+        <p
+          class="mx-auto mt-5 max-w-xl text-pretty text-base leading-relaxed text-content-secondary md:text-lg"
+        >
+          Uma conversa, um café e a sua história ganhando vida no audiovisual.
+          Sem compromisso, com muita emoção.
+        </p>
+
+        <div class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <Button
+            href={LINKS.whatsapp}
+            label="Chamar agora no WhatsApp"
+            icon="fa6-brands:whatsapp"
+            iconPosition="left"
+            size="lg"
+          />
+          <span class="text-xs font-medium uppercase tracking-widest text-content-secondary">
+            +55 38 99930-5943
+          </span>
+        </div>
+
+        <div class="mt-12 flex flex-wrap items-center justify-center gap-3">
+          {highlights.map((item) => (
+            <div class="group flex items-center gap-2.5 rounded-full border border-white/10 bg-white/5 px-5 py-2.5 backdrop-blur-sm transition-all duration-300 hover:border-accent/30 hover:bg-accent/10">
+              <span class="flex h-7 w-7 items-center justify-center rounded-full bg-accent/15 text-accent transition-colors duration-300 group-hover:bg-accent/25">
+                <Icon name={item.icon} class="h-3.5 w-3.5" aria-hidden="true" />
+              </span>
+              <span class="text-sm font-medium text-white/80 transition-colors duration-300 group-hover:text-white">
+                {item.text}
+              </span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,265 @@
+---
+/* src/pages/blog/storymaker-vs-videomaker.astro */
+import Layout from '@/layouts/Layout.astro';
+import Navbar from '@/components/Navbar.astro';
+import Footer from '@/components/Footer.astro';
+import { SITE, LINKS } from '@/config';
+
+const canonicalPath = '/blog/storymaker-vs-videomaker';
+
+const relatedArticles = [
+  {
+    slug: 'por-que-sua-marca-precisa-de-video-profissional',
+    category: 'Produção de Vídeo',
+    title: 'Por que sua marca precisa de vídeo profissional em 2026',
+  },
+  {
+    slug: 'social-media-nao-e-so-postar',
+    category: 'Social Media',
+    title: 'Social Media não é só postar: como uma estratégia conecta sua marca ao cliente',
+  },
+  {
+    slug: 'storymaker-vs-videomaker',
+    category: 'Serviços',
+    title: 'Storymaker vs Videomaker: qual a diferença e quando usar cada um',
+  },
+];
+---
+
+<Layout
+  title="Storymaker vs Videomaker: qual a diferença | Pink Studio"
+  description="Muita gente confunde os dois, mas são serviços complementares com objetivos diferentes. Descubra qual se encaixa no seu momento."
+  canonicalPath={canonicalPath}
+>
+  <Navbar basePath="/" />
+  <main id="conteudo" class="relative pt-32 pb-20 lg:pt-40">
+    <!-- Hero Background -->
+    <div class="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+      <div class="absolute -top-40 left-1/2 h-[42rem] w-[42rem] -translate-x-1/2 rounded-full bg-accent/15 blur-[140px] max-md:-top-60 max-md:h-[30rem] max-md:w-[30rem] max-md:blur-[100px] max-md:bg-accent/10" />
+      <div class="absolute top-1/3 -left-40 h-[30rem] w-[30rem] rounded-full bg-[#7c3aed]/10 blur-[130px] animate-float-slow max-md:-left-60 max-md:top-1/4 max-md:h-[22rem] max-md:w-[22rem] max-md:blur-[80px] max-md:bg-[#7c3aed]/8" />
+      <div class="absolute bottom-0 -right-32 h-[26rem] w-[26rem] rounded-full bg-accent/10 blur-[120px] animate-float max-md:-right-48 max-md:bottom-auto max-md:top-[60%] max-md:h-[20rem] max-md:w-[20rem] max-md:blur-[80px] max-md:bg-accent/8" />
+      <div class="absolute inset-0 opacity-[0.05]" style="background-image: radial-gradient(circle at 1px 1px, #ffffff 1px, transparent 0); background-size: 56px 56px;" />
+      <div class="absolute inset-0 md:block max-md:hidden" style="background-image: radial-gradient(ellipse at center, transparent 0%, var(--color-base-bg, #09090b) 70%);" />
+      <div class="absolute inset-0 hidden max-md:block" style="background: radial-gradient(ellipse at 50% 30%, transparent 0%, #09090b 60%);" />
+      <div class="noise-overlay" />
+    </div>
+
+    <article class="container-site relative z-10 max-w-4xl">
+      <!-- Header -->
+      <header class="mb-12 lg:mb-16" data-reveal>
+        <div class="mb-6 flex items-center gap-3">
+          <a href="/blog" class="text-sm font-medium text-content-secondary transition-colors hover:text-accent">
+            Home / Blog /
+          </a>
+          <span class="rounded-full border border-accent/20 bg-accent/5 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-accent">
+            Serviços
+          </span>
+        </div>
+        <h1 class="text-balance text-3xl font-bold leading-[1.1] tracking-tight text-white md:text-4xl lg:text-5xl">
+          Storymaker vs Videomaker: qual a diferença e quando usar cada um
+        </h1>
+        <div class="mt-5 flex items-center gap-4 text-sm text-content-secondary">
+          <span>28 Jul 2026</span>
+          <span class="h-1 w-1 rounded-full bg-content-secondary/40" aria-hidden="true" />
+          <span>Pink Studio</span>
+          <span class="h-1 w-1 rounded-full bg-content-secondary/40" aria-hidden="true" />
+          <span>6 min</span>
+        </div>
+      </header>
+
+      <!-- Body -->
+      <div class="space-y-8 text-base leading-relaxed text-content-secondary md:text-lg">
+        <p class="text-lg font-medium text-white/90 md:text-xl">
+          São dois serviços, dois objetivos, dois resultados. Entender a diferença é escolher a ferramenta certa para o momento certo da sua marca.
+        </p>
+
+        <h2 class="pt-4 text-2xl font-bold tracking-tight text-white">
+          O que é Storymaker?
+        </h2>
+        <p>
+          Storymaker é a cobertura em tempo real de um evento, promoção ou ação comercial para redes sociais. O profissional vai ao local, capta o que está acontecendo no momento e publica conteúdos rápidos — Stories, Reels curtos, posts ao vivo — gerando engajamento imediato.
+        </p>
+        <p>
+          Pense no storymaker como um repórter da sua marca. Ele está lá, no meio da ação, capturando a energia do momento e transformando em conteúdo que faz seu público se sentir parte da experiência.
+        </p>
+
+        <div class="relative my-10 overflow-hidden rounded-2xl border border-white/[0.06] bg-base-surface p-6 md:p-8">
+          <div class="noise-overlay rounded-2xl" aria-hidden="true" />
+          <div class="relative z-10">
+            <h3 class="text-lg font-bold text-white">Quando usar Storymaker</h3>
+            <ul class="mt-4 space-y-3">
+              <li class="flex items-start gap-3">
+                <span class="mt-1.5 h-2 w-2 flex-shrink-0 rounded-full bg-accent" aria-hidden="true" />
+                <span>Lançamento de produto ou serviço</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="mt-1.5 h-2 w-2 flex-shrink-0 rounded-full bg-accent" aria-hidden="true" />
+                <span>Promoções e ofertas por tempo limitado</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="mt-1.5 h-2 w-2 flex-shrink-0 rounded-full bg-accent" aria-hidden="true" />
+                <span>Eventos sociais e corporativos</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="mt-1.5 h-2 w-2 flex-shrink-0 rounded-full bg-accent" aria-hidden="true" />
+                <span>Ações comerciais e feiras</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="mt-1.5 h-2 w-2 flex-shrink-0 rounded-full bg-accent" aria-hidden="true" />
+                <span>Quando o objetivo é urgência e engajamento rápido</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <h2 class="pt-4 text-2xl font-bold tracking-tight text-white">
+          O que é Videomaker?
+        </h2>
+        <p>
+          Videomaker é a produção de vídeos planejados e estrategicamente executados. Cada etapa é pensada com antecedência: roteiro, storyboard, captação com direção, edição profissional, trilha sonora e tratamento de cor.
+        </p>
+        <p>
+          Enquanto o storymaker captura o momento, o videomaker constrói a narrativa. É o serviço ideal quando você quer um conteúdo com vida útil longa, que pode ser usado em múltiplas plataformas e que transmite a qualidade que sua marca merece.
+        </p>
+
+        <div class="relative my-10 overflow-hidden rounded-2xl border border-white/[0.06] bg-base-surface p-6 md:p-8">
+          <div class="noise-overlay rounded-2xl" aria-hidden="true" />
+          <div class="relative z-10">
+            <h3 class="text-lg font-bold text-white">Quando usar Videomaker</h3>
+            <ul class="mt-4 space-y-3">
+              <li class="flex items-start gap-3">
+                <span class="mt-1.5 h-2 w-2 flex-shrink-0 rounded-full bg-accent" aria-hidden="true" />
+                <span>Vídeo institucional para o site e redes</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="mt-1.5 h-2 w-2 flex-shrink-0 rounded-full bg-accent" aria-hidden="true" />
+                <span>Campanhas de tráfego pago</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="mt-1.5 h-2 w-2 flex-shrink-0 rounded-full bg-accent" aria-hidden="true" />
+                <span>Séries de conteúdo para feed</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="mt-1.5 h-2 w-2 flex-shrink-0 rounded-full bg-accent" aria-hidden="true" />
+                <span>Vídeos de lançamento de produto</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="mt-1.5 h-2 w-2 flex-shrink-0 rounded-full bg-accent" aria-hidden="true" />
+                <span>Quando o objetivo é autoridade e conversão a longo prazo</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <h2 class="pt-4 text-2xl font-bold tracking-tight text-white">
+          Comparação direta
+        </h2>
+
+        <div class="my-8 overflow-hidden rounded-2xl border border-white/[0.06]">
+          <div class="grid grid-cols-3 bg-base-surface text-sm font-bold text-white">
+            <div class="p-4"></div>
+            <div class="border-l border-white/[0.06] p-4 text-center text-accent">Storymaker</div>
+            <div class="border-l border-white/[0.06] p-4 text-center text-accent">Videomaker</div>
+          </div>
+          <div class="grid grid-cols-3 border-t border-white/[0.06] text-sm">
+            <div class="bg-base-surface p-4 font-medium text-white">Velocidade</div>
+            <div class="border-l border-white/[0.06] p-4">Rápido — publicado no mesmo dia</div>
+            <div class="border-l border-white/[0.06] p-4">Planejado — dias até a entrega</div>
+          </div>
+          <div class="grid grid-cols-3 border-t border-white/[0.06] text-sm">
+            <div class="bg-base-surface p-4 font-medium text-white">Planejamento</div>
+            <div class="border-l border-white/[0.06] p-4">Mínimo, reativo ao evento</div>
+            <div class="border-l border-white/[0.06] p-4">Completo com roteiro e storyboard</div>
+          </div>
+          <div class="grid grid-cols-3 border-t border-white/[0.06] text-sm">
+            <div class="bg-base-surface p-4 font-medium text-white">Vida útil</div>
+            <div class="border-l border-white/[0.06] p-4">Curta — Stories duram 24h</div>
+            <div class="border-l border-white/[0.06] p-4">Longa — meses ou anos</div>
+          </div>
+          <div class="grid grid-cols-3 border-t border-white/[0.06] text-sm">
+            <div class="bg-base-surface p-4 font-medium text-white">Resultado</div>
+            <div class="border-l border-white/[0.06] p-4">Engajamento imediato</div>
+            <div class="border-l border-white/[0.06] p-4">Autoridade e conversão</div>
+          </div>
+          <div class="grid grid-cols-3 border-t border-white/[0.06] text-sm">
+            <div class="bg-base-surface p-4 font-medium text-white">Ideal para</div>
+            <div class="border-l border-white/[0.06] p-4">Eventos, promoções, lançamentos</div>
+            <div class="border-l border-white/[0.06] p-4">Institucional, campanhas, feed</div>
+          </div>
+        </div>
+
+        <h2 class="pt-4 text-2xl font-bold tracking-tight text-white">
+          Quanto tempo leva cada serviço?
+        </h2>
+        <p>
+          Um projeto de storymaker pode ser entregue no mesmo dia do evento. O videomaker, dependendo da complexidade, leva de 5 a 15 dias úteis para a entrega final — incluindo edição, correção de cor e mixagem de áudio.
+        </p>
+
+        <h2 class="pt-4 text-2xl font-bold tracking-tight text-white">
+          A combinação ideal
+        </h2>
+        <p>
+          O melhor resultado vem quando os dois serviços trabalham juntos. Um evento, por exemplo, pode ter cobertura storymaker durante a ação e um vídeo profissional produzido depois, com a melhor seleção dos momentos.
+        </p>
+        <p>
+          Essa combinação garante presença imediata nas redes e um conteúdo duradouro que pode ser usado em campanhas, site e apresentações comerciais por meses.
+        </p>
+
+        <div class="relative my-10 overflow-hidden rounded-2xl border border-white/[0.06] bg-base-surface p-6 md:p-8">
+          <div class="noise-overlay rounded-2xl" aria-hidden="true" />
+          <div class="relative z-10">
+            <h3 class="text-lg font-bold text-white">Exemplo prático</h3>
+            <p class="mt-3">
+              Uma loja de roupas fez lançamento de nova coleção. Contratou storymaker para cobertura do evento (12 Stories + 3 Reels no dia) e videomaker para vídeo institucional da marca (60 segundos). Resultado: 45.000 alcance no dia do evento + vídeo institucional com 8.000 visualizações orgânicas no primeiro mês.
+            </p>
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="relative my-12 overflow-hidden rounded-3xl border border-accent/20 bg-gradient-to-br from-accent/10 via-base-surface to-accent/5 p-8 text-center lg:p-12">
+          <div class="noise-overlay rounded-3xl" aria-hidden="true" />
+          <div class="relative z-10">
+            <h3 class="text-balance text-xl font-bold tracking-tight text-white md:text-2xl">
+              Não sabe qual escolher? A gente ajuda.
+            </h3>
+            <p class="mt-3 text-sm text-content-secondary md:text-base">
+              Fale com um especialista e descubra a melhor solução para o seu momento.
+            </p>
+            <a
+              href={LINKS.whatsapp}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="mt-6 inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-accent to-[#1a1a1a] px-7 py-3.5 text-sm font-bold text-white shadow-glow transition-all duration-300 hover:from-accent-hover hover:to-[#222222] hover:scale-105 active:scale-95"
+            >
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+              </svg>
+              Falar com a gente
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Related Articles -->
+      <section class="mt-16 border-t border-white/[0.06] pt-12" data-reveal>
+        <h2 class="mb-8 text-2xl font-bold tracking-tight text-white">Leia Também</h2>
+        <div class="grid gap-6 md:grid-cols-3">
+          {relatedArticles.map((article) => (
+            <a
+              href={`/blog/${article.slug}`}
+              class="group rounded-2xl border border-white/[0.06] bg-base-surface p-6 transition-all duration-300 hover:border-accent/20 hover:shadow-glow"
+            >
+              <span class="rounded-full border border-accent/20 bg-accent/5 px-3 py-1 text-xs font-semibold text-accent">
+                {article.category}
+              </span>
+              <h3 class="mt-4 text-base font-bold leading-snug text-white transition-colors group-hover:text-accent">
+                {article.title}
+              </h3>
+            </a>
+          ))}
+        </div>
+      </section>
+    </article>
+  </main>
+  <Footer />
+</Layout>

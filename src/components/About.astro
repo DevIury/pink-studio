@@ -1,0 +1,113 @@
+---
+/* src/components/About.astro */
+import SectionTitle from './ui/SectionTitle.astro';
+import { Icon } from 'astro-icon/components';
+import aboutPhoto from '@/assets/about-photo.jpeg';
+import { LINKS } from '@/config';
+
+const highlights = [
+  'Nascida do amor pelas histórias',
+  'Desde 2019 conectando pessoas',
+  'Referência em Curvelo – MG',
+];
+---
+
+<section id="sobre" class="relative overflow-hidden section-padding">
+  <div class="pointer-events-none absolute inset-0" aria-hidden="true">
+    <div
+      class="absolute right-0 top-1/4 h-96 w-96 rounded-full bg-accent/8 blur-[120px]"
+    />
+  </div>
+
+  <div class="container-site relative z-10 grid items-center gap-14 lg:grid-cols-2 lg:gap-20">
+    <div class="relative order-2 lg:order-1" data-reveal>
+      <div
+        class="absolute -inset-6 rounded-[2.5rem] bg-gradient-to-br from-accent/20 via-transparent to-[#7c3aed]/15 blur-2xl"
+        aria-hidden="true"
+      />
+      <div class="relative overflow-hidden rounded-[2rem] border border-white/10" style="clip-path: polygon(0 0, 100% 0, 100% 85%, 85% 100%, 0 100%)">
+        <img
+          src={aboutPhoto.src}
+          alt="Equipe da Pink Studio em produção audiovisual"
+          width={aboutPhoto.width}
+          height={aboutPhoto.height}
+          class="aspect-[4/5] w-full object-cover"
+          loading="lazy"
+        />
+        <div
+          class="absolute inset-0 bg-gradient-to-t from-base-bg/80 via-transparent to-transparent"
+          aria-hidden="true"
+        />
+        <div
+          class="glass absolute bottom-5 left-5 right-5 flex items-center gap-3 rounded-2xl p-4"
+        >
+          <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-accent/15 text-accent">
+            <Icon name="heart" class="h-5 w-5" />
+          </span>
+          <p class="text-sm font-semibold text-white">
+            Feito com amor, estratégia e cinematografia.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="order-1 flex flex-col items-start gap-6 lg:order-2">
+      <SectionTitle
+        eyebrow="Nossa história"
+        title="Nascida do amor pelas histórias"
+        description="Em 2019, a fundadora da Pink Studio enxergou nas redes sociais uma oportunidade de criar conexões profundas entre pessoas. O que começou como hobby evoluiu para uma profissão."
+        align="left"
+      />
+
+      <p class="max-w-xl text-pretty leading-relaxed text-content-secondary">
+        Hoje, somos referência em marketing e audiovisual na cidade de Curvelo.
+        Cada projeto nasce da mesma paixão que deu início a tudo: gravar,
+        emocionar e conectar pessoas através de histórias bem contadas.
+      </p>
+
+      <div class="flex w-full max-w-xl flex-col gap-4">
+        {
+          highlights.map((item, i) => (
+            <div
+              class="group relative overflow-hidden rounded-2xl border border-white/10 bg-base-surface/60 p-5 transition-all duration-500 hover:-translate-y-0.5 hover:border-accent/30 hover:shadow-glow-sm"
+              data-reveal
+              style={`--reveal-delay: ${i * 100}ms`}
+            >
+              <div
+                class="pointer-events-none absolute -right-10 -top-10 h-24 w-24 rounded-full bg-accent/10 blur-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+                aria-hidden="true"
+              />
+              <div class="relative flex items-center gap-4">
+                <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-accent/15 text-accent transition-all duration-500 group-hover:scale-110">
+                  <Icon name="check" class="h-5 w-5" />
+                </span>
+                <span class="text-base font-semibold text-white">{item}</span>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+
+      <a
+        href={LINKS.instagram}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="group relative mt-2 inline-flex items-center gap-4 overflow-hidden rounded-2xl border border-accent/25 bg-gradient-to-r from-accent/15 via-accent/10 to-transparent px-8 py-5 transition-all duration-500 hover:-translate-y-0.5 hover:border-accent/50 hover:shadow-glow"
+      >
+        <div class="pointer-events-none absolute inset-0 bg-gradient-to-r from-accent/0 via-accent/5 to-accent/0 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+        <span class="relative flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-accent/20 text-accent transition-all duration-500 group-hover:scale-110 group-hover:bg-accent/30 group-hover:shadow-glow-sm">
+          <Icon name="eye" class="h-6 w-6" />
+        </span>
+        <span class="relative flex flex-col items-start">
+          <span class="text-base font-bold text-white">Conheça nosso trabalho</span>
+          <span class="text-xs font-medium text-accent/80">no Instagram</span>
+        </span>
+        <Icon
+          name="arrow-right"
+          class="relative ml-4 h-5 w-5 text-accent transition-all duration-300 group-hover:translate-x-1 group-hover:text-white"
+        />
+        <div class="pointer-events-none absolute -right-12 -top-12 h-32 w-32 rounded-full bg-accent/20 blur-3xl opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+      </a>
+    </div>
+  </div>
+</section>

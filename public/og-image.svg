@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0b0b0e"/>
+      <stop offset="50%" stop-color="#111113"/>
+      <stop offset="100%" stop-color="#09090B"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="30%" r="60%">
+      <stop offset="0%" stop-color="#FF4FA3" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#FF4FA3" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="text" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#FF4FA3"/>
+      <stop offset="50%" stop-color="#FF7AB8"/>
+      <stop offset="100%" stop-color="#FF2D8D"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+  <g fill="none" stroke="#FFFFFF" stroke-opacity="0.05">
+    <path d="M0 160 H1200 M0 320 H1200 M0 480 H1200"/>
+    <path d="M300 0 V630 M600 0 V630 M900 0 V630"/>
+  </g>
+  <circle cx="1020" cy="140" r="120" fill="none" stroke="#FF4FA3" stroke-opacity="0.25" stroke-width="1.5"/>
+  <circle cx="150" cy="500" r="90" fill="none" stroke="#7c3aed" stroke-opacity="0.25" stroke-width="1.5"/>
+  <text x="600" y="210" text-anchor="middle" font-family="Manrope, Arial, sans-serif" font-size="28" font-weight="700" letter-spacing="6" fill="#A1A1AA">PINK STUDIO</text>
+  <text x="600" y="330" text-anchor="middle" font-family="Manrope, Arial, sans-serif" font-size="64" font-weight="800" fill="#FFFFFF">Histórias que conectam</text>
+  <text x="600" y="405" text-anchor="middle" font-family="Manrope, Arial, sans-serif" font-size="64" font-weight="800" fill="url(#text)">pessoas de verdade.</text>
+  <text x="600" y="490" text-anchor="middle" font-family="Manrope, Arial, sans-serif" font-size="26" font-weight="500" fill="#A1A1AA">Audiovisual · Marketing · Curvelo – MG</text>
+</svg>

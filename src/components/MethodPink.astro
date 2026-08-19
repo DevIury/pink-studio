@@ -1,0 +1,122 @@
+---
+/* src/components/MethodPink.astro */
+import SectionTitle from './ui/SectionTitle.astro';
+import { METHOD } from '@/config';
+---
+
+<section
+  id="metodo"
+  class="relative overflow-hidden py-20 md:py-28 lg:py-36"
+>
+  <div class="pointer-events-none absolute inset-0" aria-hidden="true">
+    <div
+      class="absolute left-1/2 top-0 h-[36rem] w-[36rem] -translate-x-1/2 rounded-full bg-accent/12 blur-[150px]"
+    />
+    <div
+      class="absolute bottom-0 right-0 h-[28rem] w-[28rem] rounded-full bg-[#7c3aed]/10 blur-[140px] animate-float-slow"
+    />
+    <div class="noise-overlay" />
+    <div
+      class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent/40 to-transparent"
+    />
+  </div>
+
+  <div class="container-site relative z-10">
+    <SectionTitle
+      eyebrow="Método PINK"
+      title="Muito além de vídeos."
+      description="Criamos conexão. Um método próprio que transforma marcas em histórias memoráveis — e histórias em resultado."
+    />
+
+    <div class="relative mt-20">
+      <div
+        class="pointer-events-none absolute inset-x-8 top-1/2 hidden h-px -translate-y-1/2 bg-gradient-to-r from-transparent via-accent/30 to-transparent lg:block"
+        aria-hidden="true"
+      />
+
+      <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5">
+        {
+          METHOD.map((item, index) => (
+            <article
+              class="group relative overflow-hidden rounded-3xl border border-white/10 bg-base-surface/70 p-8 backdrop-blur-sm transition-all duration-500 hover:-translate-y-2 hover:border-accent/40 hover:shadow-glow"
+              data-reveal
+              style={`--reveal-delay: ${index * 120}ms`}
+            >
+              <span
+                class:list={[
+                  'watermark-animate pointer-events-none absolute right-2 top-2 block text-[9rem] font-black leading-none text-white/[0.06] transition-colors duration-500 group-hover:text-accent/[0.12] max-md:text-[7rem]',
+                  index === 0 && 'watermark-delay-1',
+                  index === 1 && 'watermark-delay-2',
+                  index === 2 && 'watermark-delay-3',
+                  index === 3 && 'watermark-delay-4',
+                ]}
+                aria-hidden="true"
+              >
+                {item.letter}
+              </span>
+
+              <span
+                class="relative flex h-16 w-16 items-center justify-center rounded-2xl border border-accent/20 bg-white/5 text-center text-3xl font-extrabold text-accent shadow-glow-sm transition-all duration-500 group-hover:border-transparent group-hover:bg-gradient-to-br group-hover:from-accent group-hover:to-accent-hover group-hover:text-white"
+              >
+                {item.letter}
+              </span>
+
+              <h3 class="mt-6 text-2xl font-bold tracking-tight text-white">
+                {item.word}
+              </h3>
+
+              <div
+                class="mt-3 h-0.5 w-10 rounded-full bg-accent/60 transition-all duration-500 group-hover:w-20 group-hover:bg-accent"
+                aria-hidden="true"
+              />
+
+              <p class="mt-4 text-pretty text-sm leading-relaxed text-content-secondary">
+                {item.description}
+              </p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+
+      <div
+        class="relative mt-16 flex flex-col gap-6"
+        data-reveal
+        style="--reveal-delay: 150ms"
+      >
+        <div class="absolute inset-x-0 top-1/2 hidden h-px -translate-y-1/2 bg-gradient-to-r from-transparent via-white/10 to-transparent lg:block" aria-hidden="true" />
+
+        <div class="group relative flex flex-col gap-6 rounded-[2rem] border border-white/10 bg-base-surface/60 p-8 backdrop-blur-sm transition-all duration-500 hover:border-accent/30 md:flex-row md:items-center md:p-10">
+          <div
+            class="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-accent/10 blur-3xl opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+            aria-hidden="true"
+          />
+          <span class="text-6xl font-extrabold leading-none tracking-tighter text-accent/20 transition-colors duration-500 group-hover:text-accent/40 md:text-7xl lg:text-8xl" aria-hidden="true">01</span>
+          <div class="flex flex-col gap-2">
+            <p class="text-pretty text-xl font-bold leading-snug tracking-tight text-white md:text-2xl lg:text-3xl">
+              Sua marca precisa ser vista. A gente faz isso acontecer.
+            </p>
+            <p class="text-sm leading-relaxed text-content-secondary md:text-base">
+              Conteúdo audiovisual que coloca sua empresa no centro das atenções e faz seu público se lembrar de você na hora da decisão.
+            </p>
+          </div>
+        </div>
+
+        <div class="group relative flex flex-col gap-6 rounded-[2rem] border border-white/10 bg-base-surface/60 p-8 backdrop-blur-sm transition-all duration-500 hover:border-[#7c3aed]/30 md:flex-row md:items-center md:p-10">
+          <div
+            class="pointer-events-none absolute -left-16 -bottom-16 h-48 w-48 rounded-full bg-[#7c3aed]/10 blur-3xl opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+            aria-hidden="true"
+          />
+          <span class="text-6xl font-extrabold leading-none tracking-tighter text-[#7c3aed]/20 transition-colors duration-500 group-hover:text-[#7c3aed]/40 md:text-7xl lg:text-8xl" aria-hidden="true">02</span>
+          <div class="flex flex-col gap-2">
+            <p class="text-pretty text-xl font-bold leading-snug tracking-tight text-white md:text-2xl lg:text-3xl">
+              Não é sobre ter um vídeo. É sobre ter o vídeo certo.
+            </p>
+            <p class="text-sm leading-relaxed text-content-secondary md:text-base">
+              Cada segundo é pensado com estratégia. Do roteiro à entrega, tudo para conectar sua marca com quem pode se tornar cliente.
+            </p>
+          </div>
+        </div>
+      </div>
+  </div>
+</section>
