@@ -122,8 +122,6 @@ import { TESTIMONIALS, LINKS } from '@/config';
 </section>
 
 <script>
-  import { animate } from 'motion';
-
   const slides = document.getElementById('testimonial-slides') as HTMLElement;
   const dotsContainer = document.getElementById('dots') as HTMLElement;
   const prevButton = document.getElementById('prev-slide') as HTMLButtonElement;
@@ -165,11 +163,7 @@ import { TESTIMONIALS, LINKS } from '@/config';
 
   async function goTo(index: number) {
     current = (index + total) % total;
-    await animate(
-      slides,
-      { x: `-${current * 100}%` },
-      { duration: 0.7, ease: [0.22, 1, 0.36, 1] },
-    );
+    slides.style.transform = `translateX(-${current * 100}%)`;
     updateDots();
   }
 

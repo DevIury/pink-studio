@@ -10,20 +10,26 @@ interface Props {
   image?: string;
   canonicalPath?: string;
   ogType?: string;
+  publishedTime?: string;
+  author?: string;
+  section?: string;
 }
 
 const {
   title = SITE.name,
   description = SITE.description,
-  image = '/og-image.svg',
+  image = '/og-image.png',
   canonicalPath = '/',
   ogType = 'website',
+  publishedTime,
+  author = SITE.name,
+  section,
 } = Astro.props;
 
 const canonical = new URL(canonicalPath, SITE.url).toString();
 const ogImage = new URL(image, SITE.url).toString();
 
-const jsonLd = {
+const jsonLd: Record<string, unknown> = {
   '@context': 'https://schema.org',
   '@graph': [
     {
@@ -32,7 +38,7 @@ const jsonLd = {
       name: SITE.name,
       url: SITE.url,
       logo: `${SITE.url}/logo-clara.png`,
-      sameAs: [LINKS.instagram, LINKS.tiktok, LINKS.whatsapp],
+      sameAs: [LINKS.instagram, LINKS.tiktok],
     },
     {
       '@type': 'LocalBusiness',
@@ -59,6 +65,35 @@ const jsonLd = {
     },
   ],
 };
+
+if (publishedTime) {
+  (jsonLd['@graph'] as unknown[]).push({
+    '@type': 'Article',
+    headline: title,
+    description,
+    image: ogImage,
+    url: canonical,
+    datePublished: publishedTime,
+    author: {
+      '@type': 'Organization',
+      name: author,
+      url: SITE.url,
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: SITE.name,
+      url: SITE.url,
+      logo: {
+        '@type': 'ImageObject',
+        url: `${SITE.url}/logo-clara.png`,
+      },
+    },
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': canonical,
+    },
+  });
+}
 ---
 
 <!doctype html>
@@ -93,6 +128,16 @@ const jsonLd = {
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
+
+    {publishedTime && (
+      <meta property="article:published_time" content={publishedTime} />
+    )}
+    {author && (
+      <meta property="article:author" content={author} />
+    )}
+    {section && (
+      <meta property="article:section" content={section} />
+    )}
 
     <link rel="alternate" hreflang="pt-BR" href={canonical} />
     <link rel="alternate" hreflang="x-default" href={canonical} />
